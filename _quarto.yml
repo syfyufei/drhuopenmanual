@@ -1,0 +1,42 @@
+project:
+  type: book
+
+book:
+  title: "Open Manual for Dr. Hu's Amazing Team"
+  author: "胡悦"
+  date: today
+
+  chapters:
+    - index.qmd
+    - zotero.qmd
+    - lit.qmd
+    - markdown.qmd
+    - bookdown.qmd
+    - git.qmd
+
+bibliography: references.bib
+highlight-style: github
+number-sections: true
+toc: true
+
+knitr:
+  opts_chunk: 
+    collapse: true
+    comment: "#>" 
+    echo: true
+    message: true
+    warning: true
+    dpi: 300
+
+format:
+  html:
+    cover-image: images/drhutools.png
+    theme:
+        light: [simplex, goldenBlack.scss]
+        dark: slate
+  docx: default
+    
+    
+
+
+

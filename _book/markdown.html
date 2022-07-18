@@ -1,0 +1,519 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-0.9.629">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>Open Manual for Dr.&nbsp;Hu’s Amazing Team - 3&nbsp; Rmarkdown 论文写作</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+span.underline{text-decoration: underline;}
+div.column{display: inline-block; vertical-align: top; width: 50%;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+</style>
+
+
+<script src="site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="site_libs/quarto-nav/headroom.min.js"></script>
+<script src="site_libs/clipboard/clipboard.min.js"></script>
+<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="site_libs/quarto-search/fuse.min.js"></script>
+<script src="site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="./">
+<link href="./bookdown.html" rel="next">
+<link href="./lit.html" rel="prev">
+<script src="site_libs/quarto-html/quarto.js"></script>
+<script src="site_libs/quarto-html/popper.min.js"></script>
+<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="site_libs/quarto-html/anchor.min.js"></script>
+<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-dark.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<script src="site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" class="quarto-color-scheme">
+<link href="site_libs/bootstrap/bootstrap-dark.min.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate">
+<script id="quarto-search-options" type="application/json">{
+  "location": "sidebar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "start",
+  "type": "textbox",
+  "limit": 20,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit"
+  }
+}</script>
+
+
+</head>
+
+<body class="nav-sidebar floating">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+  <nav class="quarto-secondary-nav" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+    <div class="container-fluid d-flex justify-content-between">
+      <h1 class="quarto-secondary-nav-title"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Rmarkdown 论文写作</span></h1>
+      <button type="button" class="quarto-btn-toggle btn" aria-label="Show secondary navigation">
+        <i class="bi bi-chevron-right"></i>
+      </button>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse sidebar-navigation floating overflow-auto">
+    <div class="pt-lg-2 mt-2 text-left sidebar-header">
+    <div class="sidebar-title mb-0 py-0">
+      <a href="./">Open Manual for Dr.&nbsp;Hu’s Amazing Team</a> 
+        <div class="sidebar-tools-main">
+  <a href="" class="quarto-color-scheme-toggle sidebar-tool" onclick="window.quartoToggleColorScheme(); return false;" title="Toggle dark mode"><i class="bi"></i></a>
+</div>
+    </div>
+      </div>
+      <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Search"></div>
+        </div>
+      </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./index.html" class="sidebar-item-text sidebar-link">前言</a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./zotero.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Zotero 文献管理</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./lit.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">文献整理{.sec-lit}</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./markdown.html" class="sidebar-item-text sidebar-link active"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Rmarkdown 论文写作</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./bookdown.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Bookdown 撰写毕业论文</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./git.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">版本控制</span></a>
+  </div>
+</li>
+    </ul>
+    </div>
+</nav>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc">
+    <h2 id="toc-title">Table of contents</h2>
+   
+  <ul>
+  <li><a href="#yaml-设置" id="toc-yaml-设置" class="nav-link active" data-scroll-target="#yaml-设置"> <span class="header-section-number">3.1</span> YAML 设置</a></li>
+  <li><a href="#正文设置" id="toc-正文设置" class="nav-link" data-scroll-target="#正文设置"> <span class="header-section-number">3.2</span> 正文设置</a></li>
+  <li><a href="#中文论文写作" id="toc-中文论文写作" class="nav-link" data-scroll-target="#中文论文写作"> <span class="header-section-number">3.3</span> 中文论文写作</a></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title"><span id="sec-rmarkdown" class="quarto-section-identifier d-none d-lg-block"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Rmarkdown 论文写作</span></span></h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+    
+  </div>
+  
+
+</header>
+
+<p>Rmarkdown是markdown的一种延伸版本。 Markdown是一种流行且轻量级的标记语言。 标记语言旨在将文本内容和结构（比如各级标题、链接、表格、图片、脚注等）结合展现的文本书写方式。 在<code>Pandoc</code>的帮助下，markdown语言能够轻松地实现html、pdf或docx文本输出。 这方面你可能听说过一个很强大的排版软件，LaTex。 在很多人看来（包括我），markdown语言很大程度上能够替代LaTex。 他们都能生成pdf（事实上markdown是通过<code>Pandoc</code>撰写成tex文件，所以本质上是一回事），而markdown的学习门槛和书写结果都比LaTex友好得多。</p>
+<p>本节的核心目的是教会你如何使用rmarkdown进行学术论文写作。 使用进行学术写作的优点有四：</p>
+<ol type="1">
+<li>保证分析和文字都在同一个文档中，避免忘记code对应什么内容的情况；</li>
+<li>自动生成Replication file, 任何人拿到文件后都能够得出和作者一致的结果，最大程度上实现研究透明；</li>
+<li>能轻松导出html，MS word, 或pdf文档，适应中英文写作各种要求。</li>
+<li>很好兼容Git版本控制。</li>
+</ol>
+<section id="yaml-设置" class="level2" data-number="3.1">
+<h2 data-number="3.1" class="anchored" data-anchor-id="yaml-设置"><span class="header-section-number">3.1</span> YAML 设置</h2>
+<p>Rmarkdown写作的第一步应该是设置YAML。 所谓YAML，是“Yet Another Markup Language”的缩写，通常用作全篇样式的设置，写在每篇文章的最开始的位置。 以下是我和我的合作者在<em>Chinese Journal of International Politics</em>上发表的“The Resistance and Resilience of National Image Building: An Empirical Analysis of Confucius Institute Closures in the U.S.”一文的YAML设置。<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a> 我们将逐步介绍其中的设置：</p>
+<pre><code>---
+output: 
+  bookdown::pdf_document2:
+    fig_caption: true
+    number_sections: true
+
+fontsize: 12pt
+indent: true
+geometry: margin=1in
+bibliography: Zotero.bib
+csl: chinese-journal-of-international-politics.csl
+link-citations: true
+colorlinks: true
+toc: false
+
+title: 'Resistance and Resilience: A Study of National Image Building Based on Confucius Institute Closures in the U.S.'
+
+author:
+- Yue Hu^[Tsinghua University]
+- Yufei Sun^[Tsinghua University, Corresponding Author]
+- Donald Lien^[University of Texas at San Antonio]
+
+abstract: |
+  National image building (NIB) has become a critical strategy in public diplomacy.
+  Extending the existing sender-focused literature on NIB, this study takes the receiver side into account.
+  Focusing on the closures of a critical NIB effort of China, Confucius Institutes (CIs) in the U.S., we examine how a powerful receiver's resistance affect the image of the sender domestically.
+  Based on an extensive dataset of American CIs, we also dig in who exactly in the receiver country promote the resistance.
+  The analytic results shows that the CI closures turn down both media tone of and attention to China in the U.S. but locally at most.
+  Meanwhile, the empirical evidence also support the resilience of NIB: the remaining CIs still improve local image of China; even in places no CIs left openning, the media attention to China is still higher.
+  There are also evidence for the resilience of the NIB efforts: the remaining CIs still improve the media image of China.
+  Regarding the promoters of NIB resistance, American colleges show a certain level of autonomy on the CIs' fate; the government has an influence on the issue yet largely through affecting public schools' decisions.
+  
+  **Keywords:** National image, public diplomacy, Confucius Institutes, U.S-China relations, soft power, GDELT.
+---</code></pre>
+<ul>
+<li><code>output</code>：用于设置文章的输出类型。 如前所述，<code>rmarkdown</code>可以输出html、pdf或docx三种类型，这里是确定输出格式的地方。
+<ul>
+<li><code>bookdown::pdf_document2</code>：在上面的例子里，我们设置输出格式为pdf，这也是国际期刊投稿的常见格式。</li>
+<li><code>fig_caption: true</code>：这里表示我们希望文章中显示图片的标题。</li>
+<li><code>number_sections: true</code>：这里表示我们希望文中标题显示编号。有的期刊可能会有不允许章节编号的要求，此时将<code>true</code>变成<code>false</code>即可。</li>
+</ul></li>
+</ul>
+<div class="callout-tip callout callout-style-default callout-captioned">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-caption-container flex-fill">
+Bookdown输出格式
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p><code>bookdown</code>中提供了<code>pdf_document</code>和<code>pdf_document2</code>两种格式，都可以输出pdf，但后者支持相互参照（cross reference），这个我们之后会讲到。</p>
+</div>
+</div>
+<ul>
+<li>段落格式
+<ul>
+<li><code>fontsize: 12pt</code>：字体大小，<code>12pt</code>是英文发表的标准字体大小</li>
+<li><code>indent: true</code>：采用每段空两格格式，如果<code>false</code>则采用每段顶格，段间空行模式</li>
+<li><code>geometry: margin=1in</code>：每页边距1 inch</li>
+<li><code>bibliography: Zotero.bib</code>：为参考文献文件，最方便的是使用Zotero生成，将在 <a href="zotero.html"><span>Chapter&nbsp;1</span></a> 详细讲解。</li>
+<li><code>csl: chinese-journal-of-international-politics.csl</code>：<a href="https://citationstyles.org/">Citation Style Language (CSL)</a>用于自动设置参考文献格式。换言之，只要你使用rmarkdown就再也不需要手动更改参考文献，只需要找到的对应期刊的<code>.csl</code>文件即可。</li>
+<li><code>link-citations: true</code>：将文中所有引用加入超链接，直接对应最后的参考文献列表的对应位置。</li>
+<li><code>colorlinks: true</code>：文中超链接采用不同颜色</li>
+<li><code>toc: false</code>：“table of content”（toc），即目录。通常文章不需要目录，因此我们选择否。</li>
+</ul></li>
+<li>首页
+<ul>
+<li><code>title</code>：文章标题，如果需要副标题，可加<code>subtitle</code>选项。</li>
+<li><code>author</code>：作者</li>
+<li><code>abstract</code>：摘要和关键字。</li>
+</ul></li>
+</ul>
+</section>
+<section id="正文设置" class="level2" data-number="3.2">
+<h2 data-number="3.2" class="anchored" data-anchor-id="正文设置"><span class="header-section-number">3.2</span> 正文设置</h2>
+<pre><code>National image building (NIB) is the efforts of a country to improve the public impressions of and attitudes towards it in a receiver country.
+Sender countries commonly expect the NIB efforts to bring better acceptance of their people, products, and investments in the receiver country. 
+While NIB has become widely practiced around the world regardless of the country's size or power, there has not been a consensus about its effect. [@Barr2012;@OwenIV2010;@LienEtAl2012;@XiePage2013;@LiEtAl2014;@BrazysDukalskis2019b;@Meng2020]......
+
+# Building National Image: Source, Function, and Effects
+
+......
+
+# Examining NIB Resistance-Resilience Based on CI Closures in the U.S. 
+
+## Data Generation Process
+</code></pre>
+<p>一般学术论文正文最多使用三级标题，可如上例使用1~3个#标识。 个数越多，标题层级越低。 <code>[@xxx]</code>为生成引文，其生成格式由Zotero内Bibtex生成的Citekey决定，将在 <a href="zotero.html"><span>Chapter&nbsp;1</span></a> 部分详细讲解。 此外，除文字外，Rmarkdown还插入代码块、图表等其他内容，可参见<a href="https://bookdown.org/yihui/rmarkdown/r-code.html">R Markdown: The Definitive Guide</a>相关内容。</p>
+</section>
+<section id="中文论文写作" class="level2" data-number="3.3">
+<h2 data-number="3.3" class="anchored" data-anchor-id="中文论文写作"><span class="header-section-number">3.3</span> 中文论文写作</h2>
+<p>不论是在学校上学还是在国内做研究，Microsoft Word是必用工具。 Rmarkdown可以非常方便地生成docx文档，使你几乎不用再打开Word——以及忍受闪退、格式不统一等Word弊病——实证研究和实证写作的真正融合。</p>
+<p>使用Rmakrdown进行Word写作基本步骤和上面完全一样，唯一需要调整的是YAML部分。 以下以我和朱萌在《治理研究》发表的“以语塑心与国民治理：外语习得对政治认知能力的塑造机制研究”的YAML为例进行研究。<a href="#fn2" class="footnote-ref" id="fnref2" role="doc-noteref"><sup>2</sup></a> 比起之前的例子，最主要的改变是在<code>output</code>部分从<code>bookdown::pdf_document2:</code>变为<code>bookdown::word_document2</code>。 另一个改变重点是<code>reference_docx: template_cn.docx</code>。由于中文期刊往往有一些特殊的设置要求包括章节号、段落缩进、字体等等，这些都可以通过<code>template_cn.docx</code>以MS Word template方式进行调试。 详细的设置方式可以参考以下两个资源：<a href="https://bookdown.org/yihui/rmarkdown-cookbook/word-template.html">R Markdown Cookbook</a>和<a href="https://bookdown.org/yihui/bookdown/internationalization.html">Authoring Books with R Markdown</a>。</p>
+<pre><code>--
+output:
+  bookdown::word_document2:
+    number_section: false
+    reference_docx: template_cn.docx
+fontsize: 12 pt
+geometry: margin=1in
+bibliography:  "language_English.bib"
+csl: "american-political-science-review.csl"
+link-citations: true
+colorlinks: false
+
+title: |
+  以语塑心与国民治理：外语习得对政治认知能力的塑造机制研究
+author: 
+- 胡悦
+- 朱萌^[胡悦，清华大学政治学系副教授；朱萌，通讯作者，清华大学政治学系硕士研究生。**基金项目**：国家自然科学基金委青年项目“新型城镇化进程中新老市民身份认同建构的社会心理机制与政策引导路径研究”（72004109），清华大学自主科研项目“新时代国民身份认同建构机制研究”（2019THZWJC47）。]
+
+abstract: |
+
+ **摘要**：
+ 掌握外语人口增加是现代化发展在个体层面的重要特征，也是一国站稳国际舞台、引领世界潮流的重要前提。
+ 然而，现有研究多聚焦外语的对外功能和教育手段，对其对内功用，尤其是社会政治功用和治理价值却不甚明了。
+ “语言政策场域”理论结合语言治理和语言政治学逻辑填补此方面空白，指出外语习得对国民政治能力（特别是以政治效能感为代表的政治感知能力）的提升效果以及四种作用机制。
+ 基于全国代表性样本的实证分析支持了该理论的效果和机制假设。
+ 实证研究表明，中国国民外语（英语）水平对其政治认知能力具有显著促进作用。
+ 在机制上，外语习得通过信息获取进路上提升内部政治效能感作用最明显，而语言竞争优势则是影响外部效能感的主导路径。
+ 与此同时，价值西化路径并未对国民政治认知造成明显改变。
+ 据此，外语习得对于国民政治能力塑造功能更偏向素质性，而非价值性。
+ 对于语言政策场域理论的系统探讨和实证检验推进了对宏观语言政策微观治理逻辑的理解，为“语言--思维”关系这一经典议题提供新思路和新证据，同时对于像中国这样外语人口日益庞大的现代国家治理也具有重要现实意义，为我国改革语言政策和治理体系、提升国家能力、推动国家治理现代化提供理论借鉴和实证参考。
+ 
+ **关键词**：国家治理能力；政治能力；语言治理；外语习得；政策场域；政治效能感。
+ 
+ Foreign Language and Governance: How Second Language Acquisition Constructs Mass Cognitive Capability for Politics
+ 
+ **Abstract**：The growth of the population comprehending a second language is a characteristic of modernization and the prerequisite of a state's international influence. 
+ However, the mainstay of the existing research on second language acquisition (SLA) focuses on international communications and education ignoring SLA's sociopolitical functions and values for domestic governance.
+ The novel "language policy field" theory fills this academic vacuum by specifying four paths SLA can affect individuals' political capabilities, especially the cognitive capability. 
+ The study based on a nationally representative survey in China supports the hypotheses of this theory. 
+ The empirical analyses show that Chinese citizens' English proficiency significantly modifies people's cognitive capability of politics as measured by political efficacy. 
+ In terms of the mechanisms, SLA increases the internal efficacy mainly through the information-collection mechanism while raising the external efficacy through the relative-proficiency mechanism. 
+ Meanwhile, there is no evidence that SLA affects political capacities through value changes. 
+ In this sense, the influence of SLA is more on literacy than on beliefs. 
+ The new theory and findings have far-reaching implications on language governance, national capacity, and the modernization of governance in general.
+ 
+ **Keywords**：National capacity of governance; political capacity; language governance; second-language acquisition (SLA); policy field; political efficacy.
+
+---
+</code></pre>
+
+
+</section>
+<section class="footnotes footnotes-end-of-document" role="doc-endnotes">
+<hr>
+<ol>
+<li id="fn1" role="doc-endnote"><p> Hu, Yue, Yufei Sun, and Donald Lien. 2022. “<a href="https://10.1093/cjip/poac010">The Resistance and Resilience of National Image Building: An Empirical Analysis of Confucius Institute Closures in the U.S.</a>” <em>Chinese Journal of International Politics</em> 15(3): 1–18.<a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn2" role="doc-endnote"><p>胡悦 and 朱萌. 2022. “以语塑心与国民治理：外语习得对政治认知能力的塑造机制研究.” 《治理研究》38(4): Online.<a href="#fnref2" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+</ol>
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const disableStylesheet = (stylesheets) => {
+    for (let i=0; i < stylesheets.length; i++) {
+      const stylesheet = stylesheets[i];
+      stylesheet.rel = 'prefetch';
+    }
+  }
+  const enableStylesheet = (stylesheets) => {
+    for (let i=0; i < stylesheets.length; i++) {
+      const stylesheet = stylesheets[i];
+      stylesheet.rel = 'stylesheet';
+    }
+  }
+  const manageTransitions = (selector, allowTransitions) => {
+    const els = window.document.querySelectorAll(selector);
+    for (let i=0; i < els.length; i++) {
+      const el = els[i];
+      if (allowTransitions) {
+        el.classList.remove('notransition');
+      } else {
+        el.classList.add('notransition');
+      }
+    }
+  }
+  const toggleColorMode = (alternate) => {
+    // Switch the stylesheets
+    const alternateStylesheets = window.document.querySelectorAll('link.quarto-color-scheme.quarto-color-alternate');
+    manageTransitions('#quarto-margin-sidebar .nav-link', false);
+    if (alternate) {
+      enableStylesheet(alternateStylesheets);
+    } else {
+      disableStylesheet(alternateStylesheets);
+    }
+    manageTransitions('#quarto-margin-sidebar .nav-link', true);
+    // Switch the toggles
+    const toggles = window.document.querySelectorAll('.quarto-color-scheme-toggle');
+    for (let i=0; i < toggles.length; i++) {
+      const toggle = toggles[i];
+      if (toggle) {
+        if (alternate) {
+          toggle.classList.add("alternate");     
+        } else {
+          toggle.classList.remove("alternate");
+        }
+      }
+    }
+  }
+  const isFileUrl = () => { 
+    return window.location.protocol === 'file:';
+  }
+  const hasAlternateSentinel = () => {  
+    let styleSentinel = getColorSchemeSentinel();
+    if (styleSentinel !== null) {
+      return styleSentinel === "alternate";
+    } else {
+      return false;
+    }
+  }
+  const setStyleSentinel = (alternate) => {
+    const value = alternate ? "alternate" : "default";
+    if (!isFileUrl()) {
+      window.localStorage.setItem("quarto-color-scheme", value);
+    } else {
+      localAlternateSentinel = value;
+    }
+  }
+  const getColorSchemeSentinel = () => {
+    if (!isFileUrl()) {
+      const storageValue = window.localStorage.getItem("quarto-color-scheme");
+      return storageValue != null ? storageValue : localAlternateSentinel;
+    } else {
+      return localAlternateSentinel;
+    }
+  }
+  let localAlternateSentinel = 'default';
+  // Dark / light mode switch
+  window.quartoToggleColorScheme = () => {
+    // Read the current dark / light value 
+    let toAlternate = !hasAlternateSentinel();
+    toggleColorMode(toAlternate);
+    setStyleSentinel(toAlternate);
+  };
+  // Ensure there is a toggle, if there isn't float one in the top right
+  if (window.document.querySelector('.quarto-color-scheme-toggle') === null) {
+    const a = window.document.createElement('a');
+    a.classList.add('top-right');
+    a.classList.add('quarto-color-scheme-toggle');
+    a.href = "";
+    a.onclick = function() { try { window.quartoToggleColorScheme(); } catch {} return false; };
+    const i = window.document.createElement("i");
+    i.classList.add('bi');
+    a.appendChild(i);
+    window.document.body.appendChild(a);
+  }
+  // Switch to dark mode if need be
+  if (hasAlternateSentinel()) {
+    toggleColorMode(true);
+  } 
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    target: function(trigger) {
+      return trigger.previousElementSibling;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    setTimeout(function() {
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+  function tippyHover(el, contentFn) {
+    const config = {
+      allowHTML: true,
+      content: contentFn,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start'
+    };
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      let href = ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      return note.innerHTML;
+    });
+  }
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const cites = ref.parentNode.getAttribute('data-cites').split(' ');
+    tippyHover(ref, function() {
+      var popup = window.document.createElement('div');
+      cites.forEach(function(cite) {
+        var citeDiv = window.document.createElement('div');
+        citeDiv.classList.add('hanging-indent');
+        citeDiv.classList.add('csl-entry');
+        var biblioDiv = window.document.getElementById('ref-' + cite);
+        if (biblioDiv) {
+          citeDiv.innerHTML = biblioDiv.innerHTML;
+        }
+        popup.appendChild(citeDiv);
+      });
+      return popup.innerHTML;
+    });
+  }
+});
+</script>
+<nav class="page-navigation">
+  <div class="nav-page nav-page-previous">
+      <a href="./lit.html" class="pagination-link">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">文献整理{.sec-lit}</span></span>
+      </a>          
+  </div>
+  <div class="nav-page nav-page-next">
+      <a href="./bookdown.html" class="pagination-link">
+        <span class="nav-page-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Bookdown 撰写毕业论文</span></span> <i class="bi bi-arrow-right-short"></i>
+      </a>
+  </div>
+</nav>
+</div> <!-- /content -->
+
+
+
+</body></html>

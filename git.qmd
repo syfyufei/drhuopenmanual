@@ -1,0 +1,137 @@
+# 版本控制
+
+本部分主要介绍版本控制（version control），旨在对版本迭代间进行跟踪记录。
+一方面，避免本地存储过多重复版本，另一方面，对文件迭代进行细致的辨析。
+一定程度上，版本控制还能补全使用rmarkdown无法做修改标记的缺陷。
+
+这个技术非常有用，但需要一段时间上手。
+这里的介绍大体遵循Jenny的这本英文手册：
+[Get started with GitHub | Happy Git and GitHub for the useR](https://happygitwithr.com/)^[本章写作获得石宇洋同学很大帮助。]
+
+## 版本控制远程平台
+
+版本控制在代码写作中非常常见。
+最流行的控制平台当然是[GitHub](https://github.com/)。
+和它近似的还有Gitlab, gitee等。
+清华大学也有自己的代码管理平台，根据域名推断很大可能就是假设在Gitlab上的。
+使用这些平台多数时候需要首先注册账号。
+
+## 名词解释
+
+为了之后更好理解后面内容，这里要先进行几个名词解释：
+
+- Git：是专门进行版本控制的软件。版本控制的大部分工作是可以在本地完成的。只需到[Git官网](https://git-scm.com)下载对应版本软件、安装，即可在本地实现版本控制。但是，由于基于本地的版本控制很容易由于本地电脑问题损坏、丢失，而且也不利于团队共享和合作，因此，大量版本控制使用者更倾向于基于平台实现远程（remote）版本控制。
+    - `Add`: 确定哪些命令要在一轮版本控制中进行追踪。
+    - `Commit`: 将新版本正式送入版本追踪序列。
+    - `Push`: 将新版本推到版本追踪序列中。
+    - `Diff`: 比较两个版本差别。
+    - `Pull`: 如果多人合作，别人`push`了最新版本，你可以通过`pull`的方式把这个版本拉出来，下载到本地。
+    
+想象一下，一个版本追踪就是将同一个文件放到专属这个文件的一个抽屉柜里，这个柜子有很多层，越往下层，版本越旧，越往上层越新。
+而这个抽屉柜有个特别的功能，就是柜子每两层之间的隔板可以变透明。
+所以从上往下看时候就能透过最新的对比到旧的，看出新旧的差别来。
+在这个过程中，将想要追踪的的版本调出来就叫做`add`，放到抽屉里叫做`commit`，把抽屉进去的动作就是`push`。
+对比两层的动作叫做`diff`
+而把别人放进去的最新一层拿出来就叫做`pull`。
+
+
+- Repository：如果每个文件就是一个抽屉柜，那么这些抽屉柜的总和就是一个“库”，通常简写为"repo"。
+- Main/branch：版本控制支持树的概念，类似[平行多元宇宙](https://en.wikipedia.org/wiki/Multiverse)，你可以选择一枝(branch)出来在上面随便改变你的文件。而这里的修改不会对主干(main， 有的平台称之为master)有任何影响。
+- Project：项目这个概念本身不是只有版本追踪中才有的。不进行版本追踪也可以建立project，这一点我们之后会谈到。但从版本追踪的意义上，Project更近似于repo在本地的呈现。
+
+
+:::{.callout-caution}
+由于Github倡导开源，所以在其中建立的repo都是默认公开的（public），对所有人开放。
+因此如果对编码、内容等有私密要求，需要在建立repo时候即将设置转变为私密（private）状态。
+这一点在不同平台默认设置不尽相同。
+有些平台默认repo可能就是private，有的平台甚至不支持公开状态。
+:::
+
+
+## Project
+
+创建Project是进行版本控制的基础，同时使用也可以很好管理文件存储。
+具体创建方法如下：
+
+在Rtudio的右上角,点击后选择`New Project`可以创建新的Project。一般来说，在创建**本地新项目时**选择`new directory`就行（相当于创建一个新文件夹）你应该将同一个项目的数据、图片、代码等一系列文件都置于一个Project下。这样能减少数据和代码丢失的可能性，同时在导入数据和图片时，路径也能变短（Project下，默认路径为working directory）。
+
+![](https://github.com/yangtzesyy/summer_conclusion/blob/master/pictures/pic03_CreateProject.png?raw=true)
+
+## Clone已有repository {#sec-clone}
+
+对于公开或者有读取权限的repo，我们可以直接把它复制到本地，这个动作叫做克隆。
+首先你要到对应远程平台上找到对应的`https`链接。
+
+![](https://github.com/yangtzesyy/summer_conclusion/blob/master/pictures/pic04_CloneProject.png?raw=true)
+
+然后Rstudio中创建`New Project`，选择`Version Control`&rarr;`Git`并复制https到对应窗口，选择文件夹位置，然后确定即可。
+
+## 创建Repo
+
+ 我们需要完成自己的Rstudio与Github账号的联动工作，才能写入Github上的repo。
+但别担心，这只需要设置一次就能一劳永逸了。（[英文教程](https://happygitwithr.com/credential-caching.html#credential-caching)）
+
+首先，在github中创建一个token以表明身份，[按照步骤](https://docs.github.com/en/free-pro-team@latest/github/authenticating-to-github/creating-a-personal-access-token)操作即可。Token类似于密码，需要小心保管。
+
+
+现在，利用`credentials`包在R中储存Github账号信息。你需要将得到的Token输入到`set_github_pat()`中
+
+```{r credentials, eval=F}
+library(credentials)
+
+set_github_pat(Your Token Here)
+```
+
+你可以利用`gitcreds`包查看储存的Github账号信息。
+
+```{r gitcreds, eval=F}
+library(gitcreds)
+
+gitcreds_set()
+```
+
+
+这时你可以直接到你使用的远程平台，找到创建库（New repository）的按钮，按照步骤进行即可创建一个空的库。
+然后你就可以利用 @sec-clone 的方法将其克隆到本地。^[其他两种建库的方式（将电脑中存在的project上传到Github中，将Github中已经存在的Project下载到电脑中）在[happygitwithr](https://happygitwithr.com/new-github-first.html)有介绍。]
+
+## Add和Commit
+
+首先在Rstudio里点击·Commit·
+
+![](https://github.com/yangtzesyy/summer_conclusion/blob/master/pictures/pic05-git.png?raw=true)
+
+在Rstudio的`Git`部分有Commit栏，点进去，它会显示本地数据与云端数据（Github上）的区别（图片左栏）。左上显示有变化的文件，下方逐栏说明区别。
+
+
+你可以使用stage确认变化（打勾）你可以面将想要进行版本控制的文件前面`Staged`里面进行勾选，或者使用以下命令（命令在Rstudio中的“Terminal”内输入）：
+
+```git
+git add <文件名>
+```
+
+![](https://github.com/yangtzesyy/summer_conclusion/blob/master/pictures/pic06-commit.png?raw=true)
+
+在确认完更改后，你需要输入commit信息, 通常是表明新版本特点的词、词组或一句话，并点击`commit`按钮确认。
+
+这一步也可以通过以下代码完成：
+
+```git
+git commit -m "<注释信息>"
+```
+
+#### Push
+
+点击绿色向上箭头按钮，将本地更改上传到Github，或者直接输入命令`git push`。
+
+
+### Pull：养成习惯
+
+再多人合作中，每次开始工作时，你需要先知道其他人对repo做了什么。一定要在每次工作前先将Github上的最新版本文件pull到本地中。
+
+![pull](https://github.com/yangtzesyy/summer_conclusion/blob/master/pictures/pic07-pull.png?raw=true)
+
+### Branch：避免Override
+
+你可以和朋友们各自创建自己的Branch（详细原理可见[happygitwithr](https://happygitwithr.com/git-branches.html)）。这相当于各自在不同的工作线上工作（因此不会将文件更改上传到master上）。我们仅需要将自己Branch中**完全确定**并**需要同他人共享**的部分上传到master上。
+
+![branch](https://github.com/yangtzesyy/summer_conclusion/blob/master/pictures/pic08-branch.png?raw=true)

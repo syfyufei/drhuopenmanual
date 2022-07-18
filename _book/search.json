@@ -1,0 +1,345 @@
+[
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "Open Manual for Dr. Hu’s Amazing Team",
+    "section": "",
+    "text": "亲爱的朋友：\n如果你正打算阅读这本Open Manual for Dr. Hu’s Amazing Team，那说明你正逢和一个非常棒的团队合作的机会。 我们队伍中的成员来自五湖四海，但都对基于政治认知解密政治态度、政治身份、政治传播和社会经济不平等的议题抱有兴趣。 大家秉承“立场坚定、个性自由”的共识和严守科学规范的操守，为有趣的题目、为自身的发展（当然，也为情怀）而进行政治科学研究。 既能百花齐放，也有同心协力。\n为了组内成员能够有效交流，高效合作，我编纂了这本小册子。 希望新加入的你能通过阅读和学习，在操作层面更好融入我们的工作流程，实现顺畅合作，最终达成你和团队的共同成长。 有一点有必要说明，这本小册子的目的不在于“一本在手，天下我有”。 它不会囊括技术的所有方面，而更多地是结合本组研究特性的一些专门特点和设置介绍。 特别是一些基础设置知识会加以省略。 所以你要想完全掌握这里提到的技术，还需要参考其他资源或提前熟悉。\n\n\n\n\n\n\n胡悦\n2022-07-15于清华园"
+  },
+  {
+    "objectID": "intro.html",
+    "href": "intro.html",
+    "title": "1  Introduction",
+    "section": "",
+    "text": "See Knuth (1984) for additional discussion of literate programming.\n\n1 + 1\n\n[1] 2\n\n\n\n\n\n\nKnuth, Donald E. 1984. “Literate Programming.” Comput. J. 27 (2): 97–111. https://doi.org/10.1093/comjnl/27.2.97."
+  },
+  {
+    "objectID": "summary.html",
+    "href": "summary.html",
+    "title": "2  Summary",
+    "section": "",
+    "text": "1 + 1\n\n[1] 2"
+  },
+  {
+    "objectID": "references.html",
+    "href": "references.html",
+    "title": "References",
+    "section": "",
+    "text": "Knuth, Donald E. 1984. “Literate Programming.” Comput.\nJ. 27 (2): 97–111. https://doi.org/10.1093/comjnl/27.2.97."
+  },
+  {
+    "objectID": "markdown.html",
+    "href": "markdown.html",
+    "title": "3  Rmarkdown 论文写作",
+    "section": "",
+    "text": "Rmarkdown是markdown的一种延伸版本。 Markdown是一种流行且轻量级的标记语言。 标记语言旨在将文本内容和结构（比如各级标题、链接、表格、图片、脚注等）结合展现的文本书写方式。 在Pandoc的帮助下，markdown语言能够轻松地实现html、pdf或docx文本输出。 这方面你可能听说过一个很强大的排版软件，LaTex。 在很多人看来（包括我），markdown语言很大程度上能够替代LaTex。 他们都能生成pdf（事实上markdown是通过Pandoc撰写成tex文件，所以本质上是一回事），而markdown的学习门槛和书写结果都比LaTex友好得多。\n本节的核心目的是教会你如何使用rmarkdown进行学术论文写作。 使用进行学术写作的优点有四："
+  },
+  {
+    "objectID": "markdown.html#撰写英文论文",
+    "href": "markdown.html#撰写英文论文",
+    "title": "1  Rmarkdown 论文写作",
+    "section": "1.3 撰写英文论文",
+    "text": "1.3 撰写英文论文\n在bookdown输出部分中确定输出格式即可（不需要使用template_cn.docx,bookdown内部自带英文模板），例如：\n\noutput:\n  bookdown::pdf_document2:\n    fig_caption: yes\n    keep_tex: yes\n    toc: FALSE\n    latex_engine: xelatex\n\n可参见R Markdown: The Definitive Guide相关内容。"
+  },
+  {
+    "objectID": "bookdown.html",
+    "href": "bookdown.html",
+    "title": "4  Bookdown 撰写毕业论文",
+    "section": "",
+    "text": "Bookdown是rmarkdown的一个重要延伸，我们在 ?sec-rmarkdown 中已经使用到了这一软件。 然而，如名所示，bookdown的本业是写书。 因此使用Bookdown撰写学位论文能将rmarkdown的所有优势都能充分利用，并最大限度减少文献整理等无效工作。1\n以下对和学术写作相关的Bookdown设置进行介绍。"
+  },
+  {
+    "objectID": "bookdown.html#bookdown包下载",
+    "href": "bookdown.html#bookdown包下载",
+    "title": "4  Bookdown 撰写毕业论文",
+    "section": "4.1 Bookdown包下载",
+    "text": "4.1 Bookdown包下载\n\ninstall.packages('bookdown')\n\n# or Github\n\ndevtools::install_github('rstudio/bookdown')"
+  },
+  {
+    "objectID": "bookdown.html#bookdown-project结构",
+    "href": "bookdown.html#bookdown-project结构",
+    "title": "3  Bookdown",
+    "section": "3.2 Bookdown project结构",
+    "text": "3.2 Bookdown project结构\n请在进行Bookdown书写时，首先创建一个新的project。Working directory中一般有以下部分：\nindex.Rmd: Rmd的第一章节，包括整本书的格式设置和第一章内容\nnum-name.Rmd:num决定Bookdown输出时的章节顺序，保序；name自己起名\n_bookdown.yml:输出格式逻辑调整，一般不用\n_output.yml:输出格式内容调整（例如书名），一般只需要更改全书书名\npreamble.tex和style.css:Latex和Css调整输出样式\n其他可能还有.bib（引用，见Zotero部分）。\n\ndirectory/\n├──  index.Rmd\n├── 01-intro.Rmd\n├── 02-literature.Rmd\n├── 03-method.Rmd\n├── 04-application.Rmd\n├── 05-summary.Rmd\n├── 06-references.Rmd\n├── _bookdown.yml\n├── _output.yml\n├──  book.bib\n├──  preamble.tex\n├──  README.md\n└──  style.css"
+  },
+  {
+    "objectID": "bookdown.html#index.rmd",
+    "href": "bookdown.html#index.rmd",
+    "title": "4  Bookdown 撰写毕业论文",
+    "section": "4.3 Index.Rmd",
+    "text": "4.3 Index.Rmd\nIndex.Rmd是Bookdown中最重要的部分，其包括一个YAML和第一章内容，其中，YAML决定全书格式\n\n---\ntitle: \"Summer RA Conclusion\"\nauthor: \"Yuyang Shi, Yokia Xu\"\ndate: \"`r Sys.Date()`\"\nsite: bookdown::bookdown_site\noutput: bookdown::gitbook\ndescription: \"Summer RA Conclusion\"\ndocumentclass: book\nbibliography: law-and-politics.bib,\nbiblio-style: apalike\n---\n\n其中，site和output决定全书输出格式，可参见详见Bookdown文档。一般而言，只需要更改title,author,description,bibliography和biblio-style。"
+  },
+  {
+    "objectID": "bookdown.html#num-name.rmd",
+    "href": "bookdown.html#num-name.rmd",
+    "title": "4  Bookdown 撰写毕业论文",
+    "section": "4.4 Num-name.Rmd",
+    "text": "4.4 Num-name.Rmd\n在随后的所有Rmd文件中，我们只需要使用markdown语法格式进行书写即可。(安利一下Typora！)\n所有的Num-name.Rmd都必须包含一个一级标题，如# Bookdown。\n为组织文章结构，我们可以在每个Num-name.Rmd中使用任意的二级、三级标题。但请不要使用四级及以下的标题"
+  },
+  {
+    "objectID": "bookdown.html#bookdown.yml",
+    "href": "bookdown.html#bookdown.yml",
+    "title": "4  Bookdown 撰写毕业论文",
+    "section": "4.5 _bookdown.yml",
+    "text": "4.5 _bookdown.yml\n一般不使用，可以用_bookdown.yml限定输出.Rmd的范围和顺序，如\n\n\nrmd_files: [\"index.Rmd\", \"02-git.Rmd\", \"01-Rmd.Rmd\"]\n\n将使Bookdown先输出02-git.Rmd，再生成01-Rmd.Rmd，且不输出其他内容。"
+  },
+  {
+    "objectID": "bookdown.html#output.yml",
+    "href": "bookdown.html#output.yml",
+    "title": "4  Bookdown 撰写毕业论文",
+    "section": "4.6 _output.yml",
+    "text": "4.6 _output.yml\n一般不使用，可以调整输出格式。详见R Markdown: The Definitive Guide Chapter 12.4\n\nbookdown::gitbook:\n  lib_dir: assets\n  split_by: section\n  config:\n    toolbar:\n      position: static\nbookdown::pdf_book:\n  keep_tex: yes\nbookdown::html_book:\n  css: toc.css"
+  },
+  {
+    "objectID": "bookdown.html#补充说明",
+    "href": "bookdown.html#补充说明",
+    "title": "4  Bookdown 撰写毕业论文",
+    "section": "4.7 补充说明",
+    "text": "4.7 补充说明\n\nBookdown中，各章节需要依照“num-name.Rmd”的方式命名。其中num决定章节先后顺序，保序即可。\nBookdown中的Zotero引用与第三部分完全一致。\n即使没有”_bookdown.yml”和”_output.yml”文件，Bookdown依然能按照default格式输出。但在与Github连接不稳定时，将上述文件储存在本地是有用的。\n在完成Bookdown各章节书写后，需要分别knit才能得到完整文档（仅knitindex.Rmd会有各章节目录，但不会有具体内容）。"
+  },
+  {
+    "objectID": "zotero.html",
+    "href": "zotero.html",
+    "title": "1  Zotero 文献管理",
+    "section": "",
+    "text": "Zotero是在我尝试过Endnotes和Jabref后长期使用的文献管理软件。 功能过于强大且免费。 以下结合Zotero与本组研究相关比较密切的一些功能和设置进行说明。1"
+  },
+  {
+    "objectID": "zotero.html#zotero-5.0及插件的安装和注册",
+    "href": "zotero.html#zotero-5.0及插件的安装和注册",
+    "title": "3  Zotero 文献管理",
+    "section": "3.1 ZOtero 5.0（及插件）的安装和注册",
+    "text": "3.1 ZOtero 5.0（及插件）的安装和注册\n1.于官网Zotero | Home进行下载并完成安装。（Chrome插件后期会自动安装）\n2.回到官网进行注册,记住注册信息。\n3.回到软件端。打开软件：编辑——首选项——同步——设置，输入用户名和密码进行登陆。\n\n\n\n登录信息\n\n\n4.下载插件 ZotFile （用来管理PDF文件）和 Better BibTeX(将library导出为bib.格式与RMarkdown联动。)\n下载完成后进入软件-工具-插件-设置（齿轮标识）-[Install Add-on From File]-安装已经下载的两个插件。\n\n\n\n插件安装"
+  },
+  {
+    "objectID": "zotero.html#修改首选项",
+    "href": "zotero.html#修改首选项",
+    "title": "3  Zotero 文献管理",
+    "section": "3.2 修改首选项",
+    "text": "3.2 修改首选项\n\n3.2.1 常规 general\n\n\n\ngeneral\n\n\n\n\n3.2.2 同步 sync\n\n\n\n同步\n\n\n选择自动同步，取消选择[同步全文]，（zotero只有300MB文件储存空间，可配置云端同步进行解决，见后文。）\n\n\n3.2.3 搜索与导出\n保持默认即可。\n\n\n3.2.4 引用\n针对参考文献格式的设置。点击[获取更多样式]进入Zotero远程引文格式库。引文格式也可以通过.csl本地文件进行导入，点击[+]。\n在[文字处理软件]中安装word/L-office加载项。\n\n\n\n引用\n\n\n\n\n3.2.5 高级\n文件储存位置：编辑-首选项-高级-文件和文件夹\n设置根目录和数据存储位置。\n根目录中存储文章信息及其附件（pdf），可酌情放在较空的硬盘中。\n数据储存位置仅包含zotero中的引录信息。\n后期如须多设备同步可将根目录文件夹进行云同步处理。\n\n\n\nfile position\n\n\n\n\n3.2.6 Better BibTeX\n在安装Better BibTeX扩展程序后，将显示此选项卡。 安装扩展将整个书目库（或其某些部分）导出为纯.bib文本文件。 在使用rmarkdown撰写学术论文时，需要此步骤才能在RStudio中使用Zotero。\n变更Citation key 格式：（样例）[authEtAl:capitalize][year]\ncite key 设置查阅手册\n\n\n\ncite key"
+  },
+  {
+    "objectID": "zotero.html#zotfile-设置",
+    "href": "zotero.html#zotfile-设置",
+    "title": "3  Zotero 文献管理",
+    "section": "3.3 ZotFile 设置",
+    "text": "3.3 ZotFile 设置\n【工具】-【ZotFile preference】\n\n3.3.1 General\n\n\n\ngeneral\n\n\n在这里，我们定义了两条路径。 第一个是浏览器下载的文件的默认位置。\n第二条路径指向为全文PDF创建的本地目录，我将其命名为zotero-library，并与我们选择的外部云解决方案同步。\n下面的use subfolder defined by xxx的表示：根据paper的xxx来给论文分类（以再创建二级文件夹的方式） /%a的意思是按照作者名称分类。\n\n\n3.3.2 Tablet Settings\n与平板电脑链接进行PDF交换，略。\n\n\n3.3.3 Renaming Rules\n设置附件的重命名格式。如：{%a_}{%y_}{%t}即表示作者_时间_文章名。\n\n\n\n附件重命名\n\n\n\n\n3.3.4 高级\n略。\n\n\n3.3.5 手动重命名附件\n在具体的条目中点击【附件】-【重命名附件】\n\n\n\nrename"
+  },
+  {
+    "objectID": "zotero.html#zotero-与rmarkdown联动",
+    "href": "zotero.html#zotero-与rmarkdown联动",
+    "title": "1  Zotero 文献管理",
+    "section": "1.5 Zotero 与RMarkdown联动",
+    "text": "1.5 Zotero 与RMarkdown联动\n用插件 Better BibTeX 实现RMarkdown 中的自动引用功能。\nBetter BibTeX提供了一种简便的方法，可以将Zotero的书目记录导出为纯.bib文本，并在记录更改后保持文件更新。只需右键单击Zotero中的集合，然后选择“导出集合”。\n\n\n\nbib.导出\n\n\n选择持续更新。\n\n\n\nupdate\n\n\n输出的.bib文件应放置在我们要编织.rmd文件的目录中。 .bib的名称在.rmd的YAML标头中指定。示例如图。\n\n\n\n示例\n\n\n关于R部分的更多信息请参考：\nRStudio 手册\n相关章节\n或 xieyihui的相关教程\n\n祝贺！你已经完成了设置，请奖励自己一只鸡腿！"
+  },
+  {
+    "objectID": "zotero.html#祝贺你已经完成了设置请奖励自己一只鸡腿",
+    "href": "zotero.html#祝贺你已经完成了设置请奖励自己一只鸡腿",
+    "title": "3  Zotero 文献管理",
+    "section": "3.6 祝贺！你已经完成了设置，请奖励自己一只鸡腿！",
+    "text": "3.6 祝贺！你已经完成了设置，请奖励自己一只鸡腿！"
+  },
+  {
+    "objectID": "lit.html",
+    "href": "lit.html",
+    "title": "2  文献整理",
+    "section": "",
+    "text": "Zotero是核心文献管理工具，它不只能对文献进行归类和标签链接，同时提供了强大的文件笔记功能。 因此我们推荐将每篇文献的单独记录也在其中完成。 对于Zotero的有效设置可以参见 Chapter 1 中的内容，本章主要对于单篇文献笔记方法进行介绍。"
+  },
+  {
+    "objectID": "git.html",
+    "href": "git.html",
+    "title": "5  版本控制",
+    "section": "",
+    "text": "本部分主要介绍版本控制（version control），旨在对版本迭代间进行跟踪记录。 一方面，避免本地存储过多重复版本，另一方面，对文件迭代进行细致的辨析。 一定程度上，版本控制还能补全使用rmarkdown无法做修改标记的缺陷。\n这个技术非常有用，但需要一段时间上手。 这里的介绍大体遵循Jenny的这本英文手册： Get started with GitHub | Happy Git and GitHub for the useR1"
+  },
+  {
+    "objectID": "git.html#介绍project",
+    "href": "git.html#介绍project",
+    "title": "6  Git",
+    "section": "6.1 介绍：Project",
+    "text": "6.1 介绍：Project\n创建Project是在使用R时基本功（想不通为啥各大教材和课都不先教create new project,以至于常年找不到文件在哪儿）。\n\n\n\nNewProjectCreating\n\n\n在Rtudio的右上角,点击后选择New Project可以创建新的Project。一般来说，在创建本地新项目时选择new directory就行（相当于创建一个新文件夹）你应该将同一个项目的数据、图片、代码等一系列文件都置于一个Project下。这样能减少数据和代码丢失的可能性，同时在导入数据和图片时，路径也能变短（Project下，默认路径为working directory）。"
+  },
+  {
+    "objectID": "git.html#如何clone他人公开的github读",
+    "href": "git.html#如何clone他人公开的github读",
+    "title": "5  版本控制",
+    "section": "5.2 如何Clone他人公开的Github（读）",
+    "text": "5.2 如何Clone他人公开的Github（读）\n我们能在有读取权限的repo中找到对应的https链接。\n\n\n\nGithttps\n\n\n在创建New Project时选择Version Control，Git并复制Https以克隆其他人的repo。"
+  },
+  {
+    "objectID": "git.html#如何创建一个自己的repo并保持本地与github的联动单人版写",
+    "href": "git.html#如何创建一个自己的repo并保持本地与github的联动单人版写",
+    "title": "5  版本控制",
+    "section": "5.5 如何创建一个自己的repo，并保持本地与Github的联动（单人版：写）",
+    "text": "5.5 如何创建一个自己的repo，并保持本地与Github的联动（单人版：写）\n(假设你已经有了自己的Github账号，R和Rstudio)\n我们需要完成自己的Rstudio与Github账号的联动工作，才能写入Github上的repo。这只需要设置一次，别担心。（英文教程\n\n5.5.1 设置部分\n\n5.5.1.1 得到Token\n首先，在github中创建一个token以表明身份，按照步骤操作即可。Token类似于密码，需要小心保管。\n\n\n5.5.1.2 在Rtudio中储存账号信息\n现在，利用credentials包在R中储存Github账号信息。你需要将得到的Token输入到set_github_pat()中\n\ninstall.packages(\"credentials\")\n\nlibrary(credentials)\n\nset_github_pat(Your Token Here)\n\n\n\n5.5.1.3 在Rstudio中查看账号信息\n你可以利用gitcreds包查看储存的Github账号信息。\n\n\nlibrary(gitcreds)\n\ngitcreds_set()\n\n\n\n\n5.5.2 实现联动：Pull, Commit和Push\n建议读者首先在Github中创建一个新repo，并利用3.2的方法将其克隆到本地文件中，然后再进行操作。（这相当于Git中的New Project, Github First。其他两种方式（将电脑中存在的project上传到Github中，将Github中已经存在的Project下载到电脑中）在happygitwithr有介绍。\n本章节讲Pull（同步云端数据），Commit（确认本地更改），Push（更改云端数据）三个部分。\n\n5.5.2.1 Pull：将Github中的repo读取并储存到本地\n利用3.2中的方法，将自己的repo下载到本地。\n\n\n5.5.2.2 Commit\n\n\n\ngit\n\n\n在Rstudio的Git部分有Commit栏，点进去，它会显示本地数据与云端数据（Github上）的区别（图片左栏）。左上显示有变化的文件，下方逐栏说明区别。\n你可以使用stage确认变化（打勾），或使用unstage撤销更改。\n\n\n\ncommit\n\n\n在确认完更改后，你需要输入commit信息（一般而言是对更新的简要说明），并点击commit按钮确认更改\n\n\n5.5.2.3 Push\n点击绿色向上箭头按钮，将本地更改上传到Github"
+  },
+  {
+    "objectID": "git.html#git-family如何实现与他人联动",
+    "href": "git.html#git-family如何实现与他人联动",
+    "title": "5  版本控制",
+    "section": "5.7 Git Family：如何实现与他人联动",
+    "text": "5.7 Git Family：如何实现与他人联动\n上部分的单人Github使用相当于一个大型网盘，主要用来备份数据，部分时候可以给其他人文件读取权限以方便分享。本部分在单人Github基础上，说明如何多人在同一个repo上工作。\n\n5.7.1 权限赋予：Github中的工作\n在Github的settings–Manage access部分，邀请你的朋友作为collaborator，和你一起工作（注意，Collaborator才有写权限）。\n\n\n5.7.2 Pull：养成习惯\n在每次开始工作时，你需要先知道其他人对repo做了什么。一定要在每次工作前先将Github上的最新版本文件pull到本地中。\n\n\n\npull\n\n\n\n\n5.7.3 Branch：避免Override\n你可以和朋友们各自创建自己的Branch（详细原理可见happygitwithr）。这相当于各自在不同的工作线上工作（因此不会将文件更改上传到master上）。我们仅需要将自己Branch中完全确定并需要同他人共享的部分上传到master上。\n\n\n\nbranch\n\n\n\n\n5.7.4 Commit and Push\n这与之前没有什么两样。"
+  },
+  {
+    "objectID": "markdown.html#yaml-设置",
+    "href": "markdown.html#yaml-设置",
+    "title": "3  Rmarkdown 论文写作",
+    "section": "3.1 YAML 设置",
+    "text": "3.1 YAML 设置\nRmarkdown写作的第一步应该是设置YAML。 所谓YAML，是“Yet Another Markup Language”的缩写，通常用作全篇样式的设置，写在每篇文章的最开始的位置。 以下是我和我的合作者在Chinese Journal of International Politics上发表的“The Resistance and Resilience of National Image Building: An Empirical Analysis of Confucius Institute Closures in the U.S.”一文的YAML设置。1 我们将逐步介绍其中的设置：\n---\noutput: \n  bookdown::pdf_document2:\n    fig_caption: true\n    number_sections: true\n\nfontsize: 12pt\nindent: true\ngeometry: margin=1in\nbibliography: Zotero.bib\ncsl: chinese-journal-of-international-politics.csl\nlink-citations: true\ncolorlinks: true\ntoc: false\n\ntitle: 'Resistance and Resilience: A Study of National Image Building Based on Confucius Institute Closures in the U.S.'\n\nauthor:\n- Yue Hu^[Tsinghua University]\n- Yufei Sun^[Tsinghua University, Corresponding Author]\n- Donald Lien^[University of Texas at San Antonio]\n\nabstract: |\n  National image building (NIB) has become a critical strategy in public diplomacy.\n  Extending the existing sender-focused literature on NIB, this study takes the receiver side into account.\n  Focusing on the closures of a critical NIB effort of China, Confucius Institutes (CIs) in the U.S., we examine how a powerful receiver's resistance affect the image of the sender domestically.\n  Based on an extensive dataset of American CIs, we also dig in who exactly in the receiver country promote the resistance.\n  The analytic results shows that the CI closures turn down both media tone of and attention to China in the U.S. but locally at most.\n  Meanwhile, the empirical evidence also support the resilience of NIB: the remaining CIs still improve local image of China; even in places no CIs left openning, the media attention to China is still higher.\n  There are also evidence for the resilience of the NIB efforts: the remaining CIs still improve the media image of China.\n  Regarding the promoters of NIB resistance, American colleges show a certain level of autonomy on the CIs' fate; the government has an influence on the issue yet largely through affecting public schools' decisions.\n  \n  **Keywords:** National image, public diplomacy, Confucius Institutes, U.S-China relations, soft power, GDELT.\n---\n\noutput：用于设置文章的输出类型。 如前所述，rmarkdown可以输出html、pdf或docx三种类型，这里是确定输出格式的地方。\n\nbookdown::pdf_document2：在上面的例子里，我们设置输出格式为pdf，这也是国际期刊投稿的常见格式。\nfig_caption: true：这里表示我们希望文章中显示图片的标题。\nnumber_sections: true：这里表示我们希望文中标题显示编号。有的期刊可能会有不允许章节编号的要求，此时将true变成false即可。\n\n\n\n\n\n\n\n\nBookdown输出格式\n\n\n\nbookdown中提供了pdf_document和pdf_document2两种格式，都可以输出pdf，但后者支持相互参照（cross reference），这个我们之后会讲到。\n\n\n\n段落格式\n\nfontsize: 12pt：字体大小，12pt是英文发表的标准字体大小\nindent: true：采用每段空两格格式，如果false则采用每段顶格，段间空行模式\ngeometry: margin=1in：每页边距1 inch\nbibliography: Zotero.bib：为参考文献文件，最方便的是使用Zotero生成，将在 Chapter 1 详细讲解。\ncsl: chinese-journal-of-international-politics.csl：Citation Style Language (CSL)用于自动设置参考文献格式。换言之，只要你使用rmarkdown就再也不需要手动更改参考文献，只需要找到的对应期刊的.csl文件即可。\nlink-citations: true：将文中所有引用加入超链接，直接对应最后的参考文献列表的对应位置。\ncolorlinks: true：文中超链接采用不同颜色\ntoc: false：“table of content”（toc），即目录。通常文章不需要目录，因此我们选择否。\n\n首页\n\ntitle：文章标题，如果需要副标题，可加subtitle选项。\nauthor：作者\nabstract：摘要和关键字。"
+  },
+  {
+    "objectID": "markdown.html#rmd正文部分设置",
+    "href": "markdown.html#rmd正文部分设置",
+    "title": "1  Rmarkdown 论文写作",
+    "section": "1.2 Rmd正文部分设置",
+    "text": "1.2 Rmd正文部分设置\n\n# 引言\n\n牦牛肉干是全国人民喜爱的风味食品[@Yang2020; @Jia2020]\n\n# 牦牛肉干制作方法介绍\n\n## 风干法\n\n### 夏季风干法\n\n一般正文最多使用三级标题。\n[@xxx]为生成引文，其生成格式由Zotero内Bibtex生成的Citekey决定，将在Zotero与Rmd部分详细讲解。\n此外，除文字外，Rmd正文内部可以插入代码块、图表等其他内容，可参见R Markdown: The Definitive Guide相关内容。\n\n1.2.1 Rmd setup建议设置\n\n{r setup, include=FALSE}\nknitr::opts_chunk$set(echo = FALSE, message = FALSE, warning = FALSE, dpi = 300)\noptions(digits = 3)\n\n\nif (!require(pacman)) install.packages(\"pacman\")\nlibrary(pacman)\n\np_load(\n  flextable, # Visualization\n  # Applied\n  # dependency\n  haven,stringr, broom, tidyverse\n) # data wrangling # data wrangling\n\n# Functions preload\nset.seed(313)\n\n其中，knitr::opts_chunk$set对正文部分是否显示源代码、汇报（警告）信息以及图像大小进行了设置（可参见R Markdown: The Definitive Guide相关内容。\npacman包中的p_load先对包作if (!require(tidyverse)) install.packages(\"tidyverse\"),再使用library(tidyverse)，能使代码更简洁。"
+  },
+  {
+    "objectID": "markdown.html#bookdown输出格式",
+    "href": "markdown.html#bookdown输出格式",
+    "title": "1  Rmarkdown 论文写作",
+    "section": "1.2 Bookdown输出格式",
+    "text": "1.2 Bookdown输出格式\nbookdown中提供了pdf_document和pdf_document2两种格式，都可以输出pdf，但后者支持相互参照（cross reference），这个我们之后会讲到。"
+  },
+  {
+    "objectID": "markdown.html#正文设置",
+    "href": "markdown.html#正文设置",
+    "title": "3  Rmarkdown 论文写作",
+    "section": "3.2 正文设置",
+    "text": "3.2 正文设置\nNational image building (NIB) is the efforts of a country to improve the public impressions of and attitudes towards it in a receiver country.\nSender countries commonly expect the NIB efforts to bring better acceptance of their people, products, and investments in the receiver country. \nWhile NIB has become widely practiced around the world regardless of the country's size or power, there has not been a consensus about its effect. [@Barr2012;@OwenIV2010;@LienEtAl2012;@XiePage2013;@LiEtAl2014;@BrazysDukalskis2019b;@Meng2020]......\n\n# Building National Image: Source, Function, and Effects\n\n......\n\n# Examining NIB Resistance-Resilience Based on CI Closures in the U.S. \n\n## Data Generation Process\n\n一般学术论文正文最多使用三级标题，可如上例使用1~3个#标识。 个数越多，标题层级越低。 [@xxx]为生成引文，其生成格式由Zotero内Bibtex生成的Citekey决定，将在 Chapter 1 部分详细讲解。 此外，除文字外，Rmarkdown还插入代码块、图表等其他内容，可参见R Markdown: The Definitive Guide相关内容。"
+  },
+  {
+    "objectID": "markdown.html#中文论文设置",
+    "href": "markdown.html#中文论文设置",
+    "title": "1  Rmarkdown 论文写作",
+    "section": "1.3 中文论文设置",
+    "text": "1.3 中文论文设置\n不论是在学校上学还是在国内做研究，使用Microsoft Word是必用工具。 Rmarkdown可以非常容易地生成docx文档，使实证研究和实证写作做到真正融合。 使用Rmakrdown进行Word写作基本步骤和上面完全一样，唯一需要调整的是YAML部分。 以下以我和朱萌在《治理研究》发表的“以语塑心与国民治理：外语习得对政治认知能力的塑造机制研究”的YAML为例进行研究 比起英文文章写作，最主要的区别是output部分从bookdown::pdf_document2:变为bookdown::word_document2。 另一个重要的点是reference_docx: template_cn.docx：由于中文期刊往往有一些特殊的设置要求包括章节号、段落缩进、字体等等，这些都可以通过template_cn.docx以MS Word template方式进行调试。 详细的设置方式可以参考以下两个资源：R Markdown Cookbook和Authoring Books with R Markdown。\n--\noutput:\n  bookdown::word_document2:\n    number_section: false\n    reference_docx: template_cn.docx\nfontsize: 12 pt\ngeometry: margin=1in\nbibliography:  \"language_English.bib\"\ncsl: \"american-political-science-review.csl\"\nlink-citations: true\ncolorlinks: false\n\ntitle: |\n  以语塑心与国民治理：外语习得对政治认知能力的塑造机制研究\nauthor: \n- 胡悦\n- 朱萌^[胡悦，清华大学政治学系副教授；朱萌，通讯作者，清华大学政治学系硕士研究生。**基金项目**：国家自然科学基金委青年项目“新型城镇化进程中新老市民身份认同建构的社会心理机制与政策引导路径研究”（72004109），清华大学自主科研项目“新时代国民身份认同建构机制研究”（2019THZWJC47）。]\n\nabstract: |\n\n **摘要**：\n 掌握外语人口增加是现代化发展在个体层面的重要特征，也是一国站稳国际舞台、引领世界潮流的重要前提。\n 然而，现有研究多聚焦外语的对外功能和教育手段，对其对内功用，尤其是社会政治功用和治理价值却不甚明了。\n “语言政策场域”理论结合语言治理和语言政治学逻辑填补此方面空白，指出外语习得对国民政治能力（特别是以政治效能感为代表的政治感知能力）的提升效果以及四种作用机制。\n 基于全国代表性样本的实证分析支持了该理论的效果和机制假设。\n 实证研究表明，中国国民外语（英语）水平对其政治认知能力具有显著促进作用。\n 在机制上，外语习得通过信息获取进路上提升内部政治效能感作用最明显，而语言竞争优势则是影响外部效能感的主导路径。\n 与此同时，价值西化路径并未对国民政治认知造成明显改变。\n 据此，外语习得对于国民政治能力塑造功能更偏向素质性，而非价值性。\n 对于语言政策场域理论的系统探讨和实证检验推进了对宏观语言政策微观治理逻辑的理解，为“语言--思维”关系这一经典议题提供新思路和新证据，同时对于像中国这样外语人口日益庞大的现代国家治理也具有重要现实意义，为我国改革语言政策和治理体系、提升国家能力、推动国家治理现代化提供理论借鉴和实证参考。\n \n **关键词**：国家治理能力；政治能力；语言治理；外语习得；政策场域；政治效能感。\n \n Foreign Language and Governance: How Second Language Acquisition Constructs Mass Cognitive Capability for Politics\n \n **Abstract**：The growth of the population comprehending a second language is a characteristic of modernization and the prerequisite of a state's international influence. \n However, the mainstay of the existing research on second language acquisition (SLA) focuses on international communications and education ignoring SLA's sociopolitical functions and values for domestic governance.\n The novel \"language policy field\" theory fills this academic vacuum by specifying four paths SLA can affect individuals' political capabilities, especially the cognitive capability. \n The study based on a nationally representative survey in China supports the hypotheses of this theory. \n The empirical analyses show that Chinese citizens' English proficiency significantly modifies people's cognitive capability of politics as measured by political efficacy. \n In terms of the mechanisms, SLA increases the internal efficacy mainly through the information-collection mechanism while raising the external efficacy through the relative-proficiency mechanism. \n Meanwhile, there is no evidence that SLA affects political capacities through value changes. \n In this sense, the influence of SLA is more on literacy than on beliefs. \n The new theory and findings have far-reaching implications on language governance, national capacity, and the modernization of governance in general.\n \n **Keywords**：National capacity of governance; political capacity; language governance; second-language acquisition (SLA); policy field; political efficacy.\n\n---"
+  },
+  {
+    "objectID": "markdown.html#中文论文写作",
+    "href": "markdown.html#中文论文写作",
+    "title": "3  Rmarkdown 论文写作",
+    "section": "3.3 中文论文写作",
+    "text": "3.3 中文论文写作\n不论是在学校上学还是在国内做研究，Microsoft Word是必用工具。 Rmarkdown可以非常方便地生成docx文档，使你几乎不用再打开Word——以及忍受闪退、格式不统一等Word弊病——实证研究和实证写作的真正融合。\n使用Rmakrdown进行Word写作基本步骤和上面完全一样，唯一需要调整的是YAML部分。 以下以我和朱萌在《治理研究》发表的“以语塑心与国民治理：外语习得对政治认知能力的塑造机制研究”的YAML为例进行研究。2 比起之前的例子，最主要的改变是在output部分从bookdown::pdf_document2:变为bookdown::word_document2。 另一个改变重点是reference_docx: template_cn.docx。由于中文期刊往往有一些特殊的设置要求包括章节号、段落缩进、字体等等，这些都可以通过template_cn.docx以MS Word template方式进行调试。 详细的设置方式可以参考以下两个资源：R Markdown Cookbook和Authoring Books with R Markdown。\n--\noutput:\n  bookdown::word_document2:\n    number_section: false\n    reference_docx: template_cn.docx\nfontsize: 12 pt\ngeometry: margin=1in\nbibliography:  \"language_English.bib\"\ncsl: \"american-political-science-review.csl\"\nlink-citations: true\ncolorlinks: false\n\ntitle: |\n  以语塑心与国民治理：外语习得对政治认知能力的塑造机制研究\nauthor: \n- 胡悦\n- 朱萌^[胡悦，清华大学政治学系副教授；朱萌，通讯作者，清华大学政治学系硕士研究生。**基金项目**：国家自然科学基金委青年项目“新型城镇化进程中新老市民身份认同建构的社会心理机制与政策引导路径研究”（72004109），清华大学自主科研项目“新时代国民身份认同建构机制研究”（2019THZWJC47）。]\n\nabstract: |\n\n **摘要**：\n 掌握外语人口增加是现代化发展在个体层面的重要特征，也是一国站稳国际舞台、引领世界潮流的重要前提。\n 然而，现有研究多聚焦外语的对外功能和教育手段，对其对内功用，尤其是社会政治功用和治理价值却不甚明了。\n “语言政策场域”理论结合语言治理和语言政治学逻辑填补此方面空白，指出外语习得对国民政治能力（特别是以政治效能感为代表的政治感知能力）的提升效果以及四种作用机制。\n 基于全国代表性样本的实证分析支持了该理论的效果和机制假设。\n 实证研究表明，中国国民外语（英语）水平对其政治认知能力具有显著促进作用。\n 在机制上，外语习得通过信息获取进路上提升内部政治效能感作用最明显，而语言竞争优势则是影响外部效能感的主导路径。\n 与此同时，价值西化路径并未对国民政治认知造成明显改变。\n 据此，外语习得对于国民政治能力塑造功能更偏向素质性，而非价值性。\n 对于语言政策场域理论的系统探讨和实证检验推进了对宏观语言政策微观治理逻辑的理解，为“语言--思维”关系这一经典议题提供新思路和新证据，同时对于像中国这样外语人口日益庞大的现代国家治理也具有重要现实意义，为我国改革语言政策和治理体系、提升国家能力、推动国家治理现代化提供理论借鉴和实证参考。\n \n **关键词**：国家治理能力；政治能力；语言治理；外语习得；政策场域；政治效能感。\n \n Foreign Language and Governance: How Second Language Acquisition Constructs Mass Cognitive Capability for Politics\n \n **Abstract**：The growth of the population comprehending a second language is a characteristic of modernization and the prerequisite of a state's international influence. \n However, the mainstay of the existing research on second language acquisition (SLA) focuses on international communications and education ignoring SLA's sociopolitical functions and values for domestic governance.\n The novel \"language policy field\" theory fills this academic vacuum by specifying four paths SLA can affect individuals' political capabilities, especially the cognitive capability. \n The study based on a nationally representative survey in China supports the hypotheses of this theory. \n The empirical analyses show that Chinese citizens' English proficiency significantly modifies people's cognitive capability of politics as measured by political efficacy. \n In terms of the mechanisms, SLA increases the internal efficacy mainly through the information-collection mechanism while raising the external efficacy through the relative-proficiency mechanism. \n Meanwhile, there is no evidence that SLA affects political capacities through value changes. \n In this sense, the influence of SLA is more on literacy than on beliefs. \n The new theory and findings have far-reaching implications on language governance, national capacity, and the modernization of governance in general.\n \n **Keywords**：National capacity of governance; political capacity; language governance; second-language acquisition (SLA); policy field; political efficacy.\n\n---"
+  },
+  {
+    "objectID": "zotero.html#zotero-6.0及插件的安装和注册",
+    "href": "zotero.html#zotero-6.0及插件的安装和注册",
+    "title": "1  Zotero 文献管理",
+    "section": "1.1 Zotero 6.0（及插件）的安装和注册",
+    "text": "1.1 Zotero 6.0（及插件）的安装和注册\n1.于官网Zotero | Home进行下载并完成安装。（Chrome插件后期会自动安装） 2.回到官网进行注册,记住注册信息。\n\n\n\n\n\n\nImportance\n\n\n\n注册非常重要，是保证文献信息永不丢失的重要步骤，请务必进行。\n\n\n3.回到软件端。打开软件：编辑——首选项——同步——设置，输入用户名和密码进行登陆。 \n4.下载插件 - ZotFile, 用来管理PDF文件; - Better BibTeX, 将library导出为bib.格式与RMarkdown联动。 - Jasminum, 让Zotero更好适配知网。\n下载完成后进入软件-工具-插件-设置（齿轮标识）-Install Add-on From File-安装已经下载的两个插件。\n\n\n\n插件安装"
+  },
+  {
+    "objectID": "zotero.html#修改设置",
+    "href": "zotero.html#修改设置",
+    "title": "1  Zotero 文献管理",
+    "section": "1.2 修改设置",
+    "text": "1.2 修改设置\n\n1.2.1 常规 general\n\n\n\n1.2.2 同步 sync\n\n选择自动同步，取消选择[同步全文]，（zotero只有300MB文件储存空间，可配置云端同步进行解决，见后文。）\n\n\n1.2.3 搜索\n保持默认即可。\n\n\n1.2.4 导出\n\n\n\n1.2.5 引用\n针对参考文献格式的设置。点击[获取更多样式]进入Zotero远程引文格式库。引文格式也可以通过.csl本地文件进行导入，点击[+]。\n在”文字处理软件”(Word Processors)中安装MS Word加载项。\n\n\n\n1.2.6 高级\n文件储存位置：编辑-首选项-高级-文件和文件夹(Files and Folders)\n设置根目录(Based directory)和数据存储位置。 根目录中存储文章的pdf文件，可酌情放在较空的硬盘中。\n数据储存位置（Data directory location）仅包含Zotero中的引录信息。\n后期如须多设备同步可将根目录文件夹进行云同步处理。\n\n\n\n1.2.7 Better BibTeX\n在安装Better BibTeX扩展程序后，将显示此选项卡。 安装扩展将整个书目库（或其某些部分）导出为纯.bib文本文件。 在使用rmarkdown撰写学术论文时，需要此步骤才能在RStudio中使用Zotero。\n变更Citation key 格式, 推荐格式authEtAl.capitalize+year。2\n\n自动输出（Automatic export）设置："
+  },
+  {
+    "objectID": "zotero.html#jasminum-设置",
+    "href": "zotero.html#jasminum-设置",
+    "title": "3  Zotero 文献管理",
+    "section": "3.3 Jasminum 设置",
+    "text": "3.3 Jasminum 设置\n之前请按照提示，先安装PDFtk Server。\n\n\n3.3.1 ZotFile 设置\n【工具】-【ZotFile preference】\n\n在这里，我们定义了两条路径。 第一个是浏览器下载的文件的默认位置。\n第二条路径指向为全文PDF创建的本地目录，我将其命名为zotero-library，并与我们选择的外部云解决方案同步。\n下面的use subfolder defined by xxx的表示：根据paper的xxx来给论文分类（以再创建二级文件夹的方式） /%a的意思是按照作者名称分类。\n\n\n3.3.2 Renaming Rules\n设置附件的重命名格式, 推荐以下设置{%a}{%y_}{%t}。"
+  },
+  {
+    "objectID": "zotero.html#手动重命名附件",
+    "href": "zotero.html#手动重命名附件",
+    "title": "1  Zotero 文献管理",
+    "section": "1.4 手动重命名附件",
+    "text": "1.4 手动重命名附件\n在具体的条目中点击【附件】-【重命名附件】\n\n\n\nrename"
+  },
+  {
+    "objectID": "lit.html#笔记导入",
+    "href": "lit.html#笔记导入",
+    "title": "2  文献整理",
+    "section": "2.1 笔记导入",
+    "text": "2.1 笔记导入\n对于笔记导入的方法，我们建议采用Zotero + 浏览器插件形式进行，避免手动输入。 安装Zotero后，会自动提示安装浏览器插件。 安装好后，第一次使用需要在插件中登录你的Zotero账号。 之后，只要插件会对各种浏览网页内容进行分类，如果是文章或者书籍信息则会自动转换图标，提示可以导入。 你只需要点击一下，就能自动导入Zotero。 如果你使用的是校园网或者校园VPN且你的图书馆购买了此资料，那么资料附件则会自动导入并存储到你之前设置的文件夹。1\n\n\n\n\n\n\nNote\n\n\n\n注意：Zotero插件需要在Zotero本地软件打开情况下才能较好运行。\n\n\n通过Zotero导入笔记有几点注意事项：\n\n及时修补。 Zotero随让能够帮你完成90%的文献信息输入工作，但有时也会出现信息错漏的地方，比如原文作者可能都是用英文大写或者中文名称依旧采用姓名分开方式。 有时也会丢失一些信息。 这就要求使用者及时对输入信息进行检查，及时进行添改，保证信息正确。\n知网。 知网对于外部信息通常不友好。 但这一问题很大程度上可以通过jasminum插件解决，请无比安装且做好设置。2 安装成功后，jasminum选项也会出现在右键菜单中，请妥善使用。\n提前分类。 Zotero支持文献分种类、分内容保存，同时又支持全局搜索，因此请在收集文献前事先建立分类。 建立方式和在电脑中建立文件夹类似，在此不做赘述。"
+  },
+  {
+    "objectID": "lit.html#单篇笔记",
+    "href": "lit.html#单篇笔记",
+    "title": "2  文献整理",
+    "section": "2.2 单篇笔记",
+    "text": "2.2 单篇笔记\n高效读书笔记须兼备两个原则：好记和好搜。 所谓“好记”是指能够快速的将文章内容和重点理清，当回看笔记的时候也能快速定位到需要的部分。 所谓“好搜”是指在记录笔记时即考虑到日后搜索的需要，重视关键字和短语的记录。\n基于以上原则，我推崇使用结构化笔记方式来记录单篇文献，即对文章各部分内容进行拆解，填充到固定的笔记分节中去。 这里介绍的方式，是我和我组成员长期实践的结果。其中分节设置部分借鉴了Social Science Quarterly的摘要写作方式，总体包含五部分：\n\nObjective：文章主要研究对象，一般能在题目和摘要中找到。\n\n推荐将文中一些重要概念也记录到这部分。\n\nTheory: 文章的主要观点、理论逻辑等。\nMethod：采用的研究方法。\n\n如果是理论性文章Method部分可省略。\n如果是实证性文章，请记录以下内容:\n\nData：数据来源、体量、搜集过程等信息\nMethod：数据分析方法、重要方法决定、稳健性检验等\n\n\nFindings：文章的主要发现，本部分业主要针对实证文章\nHighlights：文章的亮点\n\nLits: 文中提及的可能以后会用到的一些文献综述\nTheory：文章一些理论观点或者未来理论可以生发之处\nMethod： 文中提到的一些方法方面的综述或者讨论\nEmpirics：文中提及的其他文章中的实证发现\nWording：高效、地道的中英文词汇\n\n\n在记录这些内容的过程中，请尽量使用短语、bullet points, 箭头等形式，避免大段摘抄。 另外Zotero有强大的文本标注和转化功能。 你可以在阅读过程中即对文本进行分类标注，然后转化成上述笔记形式。"
+  },
+  {
+    "objectID": "lit.html#笔记共享",
+    "href": "lit.html#笔记共享",
+    "title": "2  文献整理",
+    "section": "2.3 笔记共享",
+    "text": "2.3 笔记共享\nZotero能很好支持线上和线下文献共享。 我们推荐采用线下共享方式，以保证本地端包含文献的记录、笔记、文档等所有内容。 导出方式非常简单，只需选中需要文本，右键选择导出。\n\n之后在导出项中选择Zotero RDF格式，然后勾选导出笔记、文件和标注。 生成文件将是一个包含了文献文本和.rdf的文件夹，压缩后分享给同伴即可。 我们推荐对多个文献采用多选分享方式，而不是一篇文章一个rdf。"
+  },
+  {
+    "objectID": "bookdown.html#bookdown-project即你的学位论文结构",
+    "href": "bookdown.html#bookdown-project即你的学位论文结构",
+    "title": "4  Bookdown 撰写毕业论文",
+    "section": "4.2 Bookdown Project（即你的学位论文）结构",
+    "text": "4.2 Bookdown Project（即你的学位论文）结构\n请在进行Bookdown书写时，首先创建一个新的project。Working directory中一般有以下部分：\nindex.Rmd: Rmd的第一章节，包括整本书的格式设置和第一章内容\nnum-name.Rmd:num决定Bookdown输出时的章节顺序，保序；name自己起名\n_bookdown.yml:输出格式逻辑调整，一般不用\n_output.yml:输出格式内容调整（例如书名），一般只需要更改全书书名\npreamble.tex和style.css:Latex和Css调整输出样式\n其他可能还有.bib（引用，见Zotero部分）。\n\ndirectory/\n├──  index.Rmd\n├── 01-intro.Rmd\n├── 02-literature.Rmd\n├── 03-method.Rmd\n├── 04-application.Rmd\n├── 05-summary.Rmd\n├── 06-references.Rmd\n├── _bookdown.yml\n├── _output.yml\n├──  book.bib\n├──  preamble.tex\n├──  README.md\n└──  style.css"
+  },
+  {
+    "objectID": "zotero.html#sec-zotero-jasminum",
+    "href": "zotero.html#sec-zotero-jasminum",
+    "title": "1  Zotero 文献管理",
+    "section": "1.3 Jasminum 设置",
+    "text": "1.3 Jasminum 设置\n之前请按照提示，先安装PDFtk Server。\n\n\n1.3.1 ZotFile 设置\n【工具】-【ZotFile preference】\n\n在这里，我们定义了两条路径。 第一个是浏览器下载的文件的默认位置。\n第二条路径指向为全文PDF创建的本地目录，我将其命名为zotero-library，并与我们选择的外部云解决方案同步。\n下面的use subfolder defined by xxx的表示：根据paper的xxx来给论文分类（以再创建二级文件夹的方式） /%a的意思是按照作者名称分类。\n\n\n1.3.2 Renaming Rules\n设置附件的重命名格式, 推荐以下设置{%a}{%y_}{%t}。"
+  },
+  {
+    "objectID": "git.html#project",
+    "href": "git.html#project",
+    "title": "5  版本控制",
+    "section": "5.3 Project",
+    "text": "5.3 Project\n创建Project是进行版本控制的基础，同时使用也可以很好管理文件存储。 具体创建方法如下：\n在Rtudio的右上角,点击后选择New Project可以创建新的Project。一般来说，在创建本地新项目时选择new directory就行（相当于创建一个新文件夹）你应该将同一个项目的数据、图片、代码等一系列文件都置于一个Project下。这样能减少数据和代码丢失的可能性，同时在导入数据和图片时，路径也能变短（Project下，默认路径为working directory）。"
+  },
+  {
+    "objectID": "git.html#版本控制远程平台",
+    "href": "git.html#版本控制远程平台",
+    "title": "5  版本控制",
+    "section": "5.1 版本控制远程平台",
+    "text": "5.1 版本控制远程平台\n版本控制在代码写作中非常常见。 最流行的控制平台当然是GitHub。 和它近似的还有Gitlab, gitee等。 清华大学也有自己的代码管理平台，根据域名推断很大可能就是假设在Gitlab上的。 使用这些平台多数时候需要首先注册账号。"
+  },
+  {
+    "objectID": "git.html#名词解释",
+    "href": "git.html#名词解释",
+    "title": "5  版本控制",
+    "section": "5.2 名词解释",
+    "text": "5.2 名词解释\n为了之后更好理解后面内容，这里要先进行几个名词解释：\n\nGit：是专门进行版本控制的软件。版本控制的大部分工作是可以在本地完成的。只需到Git官网下载对应版本软件、安装，即可在本地实现版本控制。但是，由于基于本地的版本控制很容易由于本地电脑问题损坏、丢失，而且也不利于团队共享和合作，因此，大量版本控制使用者更倾向于基于平台实现远程（remote）版本控制。\n\nAdd: 确定哪些命令要在一轮版本控制中进行追踪。\nCommit: 将新版本正式送入版本追踪序列。\nPush: 将新版本推到版本追踪序列中。\nDiff: 比较两个版本差别。\nPull: 如果多人合作，别人push了最新版本，你可以通过pull的方式把这个版本拉出来，下载到本地。\n\n\n想象一下，一个版本追踪就是将同一个文件放到专属这个文件的一个抽屉柜里，这个柜子有很多层，越往下层，版本越旧，越往上层越新。 而这个抽屉柜有个特别的功能，就是柜子每两层之间的隔板可以变透明。 所以从上往下看时候就能透过最新的对比到旧的，看出新旧的差别来。 在这个过程中，将想要追踪的的版本调出来就叫做add，放到抽屉里叫做commit，把抽屉进去的动作就是push。 对比两层的动作叫做diff 而把别人放进去的最新一层拿出来就叫做pull。\n\nRepository：如果每个文件就是一个抽屉柜，那么这些抽屉柜的总和就是一个“库”，通常简写为”repo”。\nMain/branch：版本控制支持树的概念，类似平行多元宇宙，你可以选择一枝(branch)出来在上面随便改变你的文件。而这里的修改不会对主干(main， 有的平台称之为master)有任何影响。\nProject：项目这个概念本身不是只有版本追踪中才有的。不进行版本追踪也可以建立project，这一点我们之后会谈到。但从版本追踪的意义上，Project更近似于repo在本地的呈现。\n\n\n\n\n\n\n\nDanger\n\n\n\n由于Github倡导开源，所以在其中建立的repo都是默认公开的（public），对所有人开放。 因此如果对编码、内容等有私密要求，需要在建立repo时候即将设置转变为私密（private）状态。 这一点在不同平台默认设置不尽相同。 有些平台默认repo可能就是private，有的平台甚至不支持公开状态。"
+  },
+  {
+    "objectID": "git.html#如何clone他人repository",
+    "href": "git.html#如何clone他人repository",
+    "title": "5  版本控制",
+    "section": "5.4 如何Clone他人repository",
+    "text": "5.4 如何Clone他人repository\n我们能在有读取权限的repo中找到对应的https链接。\n\n\n\nGithttps\n\n\n在创建New Project时选择Version Control，Git并复制Https以克隆其他人的repo。"
+  },
+  {
+    "objectID": "git.html#clone已有repository",
+    "href": "git.html#clone已有repository",
+    "title": "5  版本控制",
+    "section": "5.4 Clone已有repository",
+    "text": "5.4 Clone已有repository\n对于公开或者有读取权限的repo，我们可以直接把它复制到本地，这个动作叫做克隆。 首先你要到对应远程平台上找到对应的https链接。\n\n\n\nGithttps\n\n\n在创建New Project时选择Version Control，Git并复制Https以克隆其他人的repo。"
+  },
+  {
+    "objectID": "git.html#创建repo",
+    "href": "git.html#创建repo",
+    "title": "5  版本控制",
+    "section": "5.5 创建Repo",
+    "text": "5.5 创建Repo\n我们需要完成自己的Rstudio与Github账号的联动工作，才能写入Github上的repo。 但别担心，这只需要设置一次就能一劳永逸了。（英文教程）\n首先，在github中创建一个token以表明身份，按照步骤操作即可。Token类似于密码，需要小心保管。\n现在，利用credentials包在R中储存Github账号信息。你需要将得到的Token输入到set_github_pat()中\n\nlibrary(credentials)\n\nset_github_pat(Your Token Here)\n\n你可以利用gitcreds包查看储存的Github账号信息。\n\nlibrary(gitcreds)\n\ngitcreds_set()\n\n这时你可以直接到你使用的远程平台，找到创建库（New repository）的按钮，按照步骤进行即可创建一个空的库。 然后你就可以利用 Section 5.4 的方法将其克隆到本地。2"
+  },
+  {
+    "objectID": "git.html#sec-clone",
+    "href": "git.html#sec-clone",
+    "title": "5  版本控制",
+    "section": "5.4 Clone已有repository",
+    "text": "5.4 Clone已有repository\n对于公开或者有读取权限的repo，我们可以直接把它复制到本地，这个动作叫做克隆。 首先你要到对应远程平台上找到对应的https链接。\n\n然后Rstudio中创建New Project，选择Version Control→Git并复制https到对应窗口，选择文件夹位置，然后确定即可。"
+  },
+  {
+    "objectID": "git.html#add和commit",
+    "href": "git.html#add和commit",
+    "title": "5  版本控制",
+    "section": "5.6 Add和Commit",
+    "text": "5.6 Add和Commit\n首先在Rstudio里点击·Commit·\n\n在Rstudio的Git部分有Commit栏，点进去，它会显示本地数据与云端数据（Github上）的区别（图片左栏）。左上显示有变化的文件，下方逐栏说明区别。\n你可以使用stage确认变化（打勾）你可以面将想要进行版本控制的文件前面Staged里面进行勾选，或者使用以下命令（命令在Rstudio中的“Terminal”内输入）：\ngit add <文件名>\n\n在确认完更改后，你需要输入commit信息, 通常是表明新版本特点的词、词组或一句话，并点击commit按钮确认。\n这一步也可以通过以下代码完成：\ngit commit -m \"<注释信息>\"\n\n5.6.0.1 Push\n点击绿色向上箭头按钮，将本地更改上传到Github，或者直接输入命令git push。\n\n\n5.6.1 Pull：养成习惯\n再多人合作中，每次开始工作时，你需要先知道其他人对repo做了什么。一定要在每次工作前先将Github上的最新版本文件pull到本地中。\n\n\n\npull\n\n\n\n\n5.6.2 Branch：避免Override\n你可以和朋友们各自创建自己的Branch（详细原理可见happygitwithr）。这相当于各自在不同的工作线上工作（因此不会将文件更改上传到master上）。我们仅需要将自己Branch中完全确定并需要同他人共享的部分上传到master上。\n\n\n\nbranch"
+  }
+]
